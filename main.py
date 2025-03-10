@@ -6,18 +6,26 @@ import time
 
 # Create a dictionary
 sipher = {"a": "z", "b": "y", "c": "x", "d": "w", "e": "v", "f": "u", "g": "t", "h": "s", "i": "r", "j": "q", "k": "p", "l": "o", "m": "n", "n": "m", "o": "l", "p": "k", "q": "j", "r": "i", "s": "h", "t": "g", "u": "f", "v": "e", "w": "d", "x": "c", "y": "b", "z": "a"}
+sipher2 = {"z": "a", "y": "b", "x": "c", "w": "d", "v": "e", "u": "f", "t": "g", "s": "h", "r": "i", "q": "j", "p": "k", "o": "l", "n": "m", "m": "n", "l": "o", "k": "p", "j": "q", "i": "r", "h": "s", "g": "t", "f": "u", "e": "v", "d": "w", "c": "x", "b": "y", "a": "z"}
 
 # Create a Function that encrypts the message
-def encrypt(messages: list, message: str):
+def encrypt(messages: list):
     enter = input("Enter a message: ").strip().lower()
     for letter in enter:
         if letter in sipher:
             messages.append(sipher[letter])
+    return messages
 
 # Create a Function that decrypts the message
 def decrypt(messages: list, message: str):
-    pass
+    enter = input("Enter a message: ").strip().lower()
+    for letter in enter:
+        if letter in sipher2:
+            message += sipher2[letter]
+    messages.append(message)
+    return messages
 
+messages = []
 
 # Greet user and explain what an enigma machine is
 print("Welcome to the Enigma Machine!")
@@ -40,7 +48,8 @@ time.sleep(0.5)
 options = int(input("1. Encrypt a message 2. Decrypt a message 3. Quit: ")).strip().lower()
 time.sleep(0.5)
 if options == 1:
-    pass
+    encrypt(messages)
+    print(messages)
 elif options == 2:
     pass
 elif options == 3:   
