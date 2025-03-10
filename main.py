@@ -9,7 +9,10 @@ sipher = {"a": "z", "b": "y", "c": "x", "d": "w", "e": "v", "f": "u", "g": "t", 
 
 # Create a Function that encrypts the message
 def encrypt(messages: list, message: str):
-    pass
+    enter = input("Enter a message: ").strip().lower()
+    for letter in enter:
+        if letter in sipher:
+            messages.append(sipher[letter])
 
 # Create a Function that decrypts the message
 def decrypt(messages: list, message: str):
@@ -32,7 +35,17 @@ time.sleep(0.5)
 
 
 # Ask user if they want to encrypt, decrypt, or quit
-
+print("Please choose one of the options below:")
+time.sleep(0.5)
+options = int(input("1. Encrypt a message 2. Decrypt a message 3. Quit: ")).strip().lower()
+time.sleep(0.5)
+if options == 1:
+    pass
+elif options == 2:
+    pass
+elif options == 3:   
+    print("Goodbye!")
+    time.sleep(0.5)
 
 # If they want to encrypt, ask for a message
 
