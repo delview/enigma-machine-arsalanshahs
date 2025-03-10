@@ -25,6 +25,7 @@ def decrypt(messages: list, message: str):
     messages.append(message)
     return messages
 
+# Create a list to store messages
 messages = []
 
 # Greet user and explain what an enigma machine is
