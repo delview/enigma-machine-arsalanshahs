@@ -5,28 +5,18 @@ import time
 
 
 # Create a dictionary
-sipher = {"a": "z", "b": "y", "c": "x", "d": "w", "e": "v", "f": "u", "g": "t", "h": "s", "i": "r", "j": "q", "k": "p", "l": "o", "m": "n", "n": "m", "o": "l", "p": "k", "q": "j", "r": "i", "s": "h", "t": "g", "u": "f", "v": "e", "w": "d", "x": "c", "y": "b", "z": "a"}
-sipher2 = {"z": "a", "y": "b", "x": "c", "w": "d", "v": "e", "u": "f", "t": "g", "s": "h", "r": "i", "q": "j", "p": "k", "o": "l", "n": "m", "m": "n", "l": "o", "k": "p", "j": "q", "i": "r", "h": "s", "g": "t", "f": "u", "e": "v", "d": "w", "c": "x", "b": "y", "a": "z"}
+cipher = {"a": "z", "b": "y", "c": "x", "d": "w", "e": "v", "f": "u", "g": "t", "h": "s", "i": "r", "j": "q", "k": "p", "l": "o", "m": "n", "n": "m", "o": "l", "p": "k", "q": "j", "r": "i", "s": "h", "t": "g", "u": "f", "v": "e", "w": "d", "x": "c", "y": "b", "z": "a"}
 
-# Create a Function that encrypts the message
-def encrypt(messages: list):
-    enter = input("Enter a message: ").strip().lower()
-    for letter in enter:
-        if letter in sipher:
-            messages.append(sipher[letter])
-    return messages
+# Create a Function that encrypts/decrypts message
+def encrypt(message):
+    """This function encrypts the message using the Atbash Cipher, it takes in the list of the messages, swaps each letter, then returns it."""
+    encrypted_message = ""
+    for letter in message:
+        if letter in cipher:
+            encrypted_message += cipher[letter]
+    return encrypted_message
 
-# Create a Function that decrypts the message
-def decrypt(messages: list, message: str):
-    enter = input("Enter a message: ").strip().lower()
-    for letter in enter:
-        if letter in sipher2:
-            message += sipher2[letter]
-    messages.append(message)
-    return messages
 
-# Create a list to store messages
-messages = []
 
 # Greet user and explain what an enigma machine is
 print("Welcome to the Enigma Machine!")
@@ -46,16 +36,19 @@ time.sleep(0.5)
 # Ask user if they want to encrypt, decrypt, or quit
 print("Please choose one of the options below:")
 time.sleep(0.5)
-options = int(input("1. Encrypt a message 2. Decrypt a message 3. Quit: ")).strip().lower()
-time.sleep(0.5)
-if options == 1:
-    encrypt(messages)
-    print(messages)
-elif options == 2:
-    pass
-elif options == 3:   
-    print("Goodbye!")
+while True:
+# Give the user options to encrypt, decrypt, or quit
+    options = input("(1) Encrypt a message (2) Decrypt a message (3) Quit: ").strip()
     time.sleep(0.5)
+    if options == "1":
+        message = input("Enter a message: ")
+        print(encrypt(message))
+    elif options == "2":
+        message = input("Enter a message: ")
+        print(encrypt(message))
+    elif options == "3":   
+        print("Goodbye!")
+        break
 
 # If they want to encrypt, ask for a message
 
