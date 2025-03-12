@@ -5,7 +5,7 @@ import time
 
 
 # Create a dictionary
-cipher = {"a": "z", "b": "y", "c": "x", "d": "w", "e": "v", "f": "u", "g": "t", "h": "s", "i": "r", "j": "q", "k": "p", "l": "o", "m": "n", "n": "m", "o": "l", "p": "k", "q": "j", "r": "i", "s": "h", "t": "g", "u": "f", "v": "e", "w": "d", "x": "c", "y": "b", "z": "a"}
+cipher = {"a": "z", "b": "y", "c": "x", "d": "w", "e": "v", "f": "u", "g": "t", "h": "s", "i": "r", "j": "q", "k": "p", "l": "o", "m": "n", "n": "m", "o": "l", "p": "k", "q": "j", "r": "i", "s": "h", "t": "g", "u": "f", "v": "e", "w": "d", "x": "c", "y": "b", "z": "a", "1": "0", "2": "9", "3": "8", "4": "7", "5": "6", "6": "5", "7": "4", "8": "3", "9": "2", "0": "1"}
 
 # Create a Function that encrypts/decrypts message
 def encrypt(message):
@@ -19,6 +19,9 @@ def encrypt(message):
 
 
 # Greet user and explain what an enigma machine is
+
+#blocks all keys of keyboard
+
 print("Welcome to the Enigma Machine!")
 time.sleep(0.5)
 print("The Enigma Machine is a device used to encrypt and decrypt messages during World War II.")
@@ -34,6 +37,7 @@ time.sleep(0.5)
 
 
 # Ask user if they want to encrypt, decrypt, or quit
+time.sleep(0.5)
 print("Please choose one of the options below:")
 time.sleep(0.5)
 while True:
@@ -41,14 +45,16 @@ while True:
     options = input("(1) Encrypt a message (2) Decrypt a message (3) Quit: ").strip()
     time.sleep(0.5)
     if options == "1":
-        message = input("Enter a message: ")
+        message = input("Enter a message: ").strip().lower()
         print(encrypt(message))
     elif options == "2":
-        message = input("Enter a message: ")
+        message = input("Enter a message: ").strip().lower()
         print(encrypt(message))
     elif options == "3":   
         print("Goodbye!")
         break
+    else:
+        print("Invalid input, please enter 1, 2, or 3.")
 
 # If they want to encrypt, ask for a message
 
